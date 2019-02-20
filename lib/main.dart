@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/mainPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,8 +20,10 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+
       ),
-      home: MyHomePage(title: "MardaWang's first Flutter Demo "),
+      home: mainPage(),
+//      home: MyHomePage(title: "MardaWang's first Flutter Demo "),
     );
   }
 }
