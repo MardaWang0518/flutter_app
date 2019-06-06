@@ -25,10 +25,15 @@ dev_dependencies:
     sdk: flutter
 
 assets:
-  - images/home.png
-  - images/home_selected.png
-  - images/mine.png
-  - images/mine_selected.png
+  - images/task_normal.png
+  - images/task_checked.png
+  - images/train_normal.png
+  - images/train_checked.png
+  - images/exam_normal.png
+    - images/exam_checked.png
+    - images/mine_normal.png
+      - images/mine_checked.png
+    - images/icon_chat.png
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

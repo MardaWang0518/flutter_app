@@ -37,7 +37,6 @@ class Page extends State<homePage>{
   Widget header(BuildContext context) {
     return new Image.network(
       'http://i2.yeyou.itc.cn/2014/huoying/hd_20140925/hyimage06.jpg',
-
     );
   }
 }

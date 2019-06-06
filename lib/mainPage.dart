@@ -23,7 +23,7 @@ class mainPageWidget extends StatefulWidget{
 class mainPageState extends State<mainPageWidget> {
   int _tabIndex = 0;
   var tabImages;
-  var appBarTitles = ['首页', '我的'];
+  var appBarTitles = ['任务', '培训', '考试', '我的'];
   /*
    * 存放三个页面，跟fragmentList一样
    */
@@ -61,14 +61,18 @@ class mainPageState extends State<mainPageWidget> {
      * 初始化选中和未选中的icon
      */
     tabImages = [
-      [getTabImage('images/home.png'), getTabImage('images/home_selected.png')],
-      [getTabImage('images/mine.png'), getTabImage('images/mine_selected.png')]
+      [getTabImage('images/task_normal.png'), getTabImage('images/task_checked.png')],
+      [getTabImage('images/train_normal.png'), getTabImage('images/train_checked.png')],
+      [getTabImage('images/exam_normal.png'), getTabImage('images/exam_checked.png')],
+      [getTabImage('images/mine_normal.png'), getTabImage('images/mine_checked.png')]
     ];
     /*
-     * 三个子界面
+     * 四个子界面
      */
     _pageList = [
       new homePage(),
+      new minePage(),
+      new minePage(),
       new minePage(),
     ];
   }
@@ -85,6 +89,10 @@ class mainPageState extends State<mainPageWidget> {
                 icon: getTabIcon(0), title: getTabTitle(0)),
             new BottomNavigationBarItem(
                 icon: getTabIcon(1), title: getTabTitle(1)),
+            new BottomNavigationBarItem(
+                icon: getTabIcon(2), title: getTabTitle(2)),
+            new BottomNavigationBarItem(
+                icon: getTabIcon(3), title: getTabTitle(3)),
           ],
           type: BottomNavigationBarType.fixed,
           //默认选中首页
