@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widget/mine_drawer.dart';
 
 class homePage extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class homePage extends StatefulWidget {
   }
 }
 
-class Page extends State<homePage>{
+class Page extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return layout(context);
@@ -17,7 +18,21 @@ class Page extends State<homePage>{
 
   Widget layout(BuildContext context) {
     return new Scaffold(
-      appBar: buildAppBar(context),
+      appBar: AppBar(
+        title: Text('首页', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.blue,
+        centerTitle: true,
+        leading: Builder(
+            builder: (context) =>
+                GestureDetector(
+                  onTap: () => Scaffold.of(context).openDrawer(),
+                  child: Icon(
+                    Icons.supervised_user_circle,
+                    color: Colors.white,
+                  ),
+                )),
+      ),
+      drawer: MineDrawer(),
       body: new ListView(
         children: <Widget>[
           header(context),
@@ -28,10 +43,6 @@ class Page extends State<homePage>{
         ],
       ),
     );
-  }
-
-  Widget buildAppBar(BuildContext context) {
-    return new AppBar(title: const Text('首页'));
   }
 
   Widget header(BuildContext context) {

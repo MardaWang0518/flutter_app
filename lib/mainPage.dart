@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/homePage.dart';
+import 'package:flutter_app/trainPage.dart';
+import 'package:flutter_app/examPage.dart';
 import 'package:flutter_app/minePage.dart';
 
 class mainPage extends StatelessWidget{
@@ -71,8 +73,8 @@ class mainPageState extends State<mainPageWidget> {
      */
     _pageList = [
       new homePage(),
-      new minePage(),
-      new minePage(),
+      new trainPage(),
+      new examePage(),
       new minePage(),
     ];
   }
