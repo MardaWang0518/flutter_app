@@ -7,7 +7,6 @@ import 'package:flutter_app/minePage.dart';
 class mainPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new MaterialApp(
         debugShowCheckedModeBanner: false, home: new mainPageWidget());
   }
@@ -17,7 +16,6 @@ class mainPageWidget extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return mainPageState();
   }
 }

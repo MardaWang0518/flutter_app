@@ -44,9 +44,18 @@ class _MineDrawerState extends State<MineDrawer> {
             onTap: () {
               Navigator.pop(context);
             },),
-          Text("北京小爱智能科技",
-              textAlign: TextAlign.end,
-              style: TextStyle(color: Colors.red))
+          Container(
+            alignment: Alignment.bottomCenter,
+            height:410.0,
+            // padding:const EdgeInsets.fromLTRB(20, 0, 0, 0),
+            margin:const EdgeInsets.all(10),
+            child:Row(
+              children: <Widget>[
+                Text("北京小爱智能科技",textAlign:TextAlign.right,style: TextStyle(fontSize: 16,color: Colors.black45),),
+                Icon(Icons.navigate_next,color: Colors.grey),
+              ],
+            ) 
+          ),
         ],
       ),
     );
