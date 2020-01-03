@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widget/mine_drawer.dart';
-import 'package:flutter_app/widget/banner_view.dart';
-import 'package:flutter_app/dao/HomeBannerDao.dart';
-
-import 'bean/homeBannerBean.dart';
+import 'package:flutter_app/widget/tabbarWidget.dart';
 import 'package:toast/toast.dart';
+
+
+const double SCROLL_PIXELS_OFFSET = 500;
 
 class homePage extends StatefulWidget {
   @override
@@ -15,58 +13,60 @@ class homePage extends StatefulWidget {
 }
 
 class Page extends State<homePage> {
-  List<BannerData> bannerList = [];
+  List bannerList = [];
+  List articleData = [];
+
+  int offset = 0;
+  double scrollPixels = 0;
+
+  ScrollController _scrollController = new ScrollController();
 
   @override
   void initState() {
-    _getBannerInfo();
     super.initState();
+    _loadHomeList();
   }
 
   @override
   Widget build(BuildContext context) {
-    return layout(context);
-  }
+    List<Widget> tabs = [
+      _renderTab(new Text("待确认")),
+      _renderTab(new Text("待报到")),
+      _renderTab(new Text("作业中")),
+      _renderTab(new Text("已结束"))
+    ];
+    return WillPopScope(
+    child: new tabbarWidget(
+      title: new Text("首页"),
+      type: tabbarWidget.TOP_TAB,
+      tabItems:tabs,
+      tabViews: <Widget>[],
+      indicatorColor: Colors.blueAccent,
+    ), onWillPop: () {
 
-  Widget layout(BuildContext context) {
-    return new Scaffold(
-      appBar: AppBar(
-        title: Text('首页', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.blue,
-        centerTitle: true,
-        leading: Builder(
-            builder: (context) =>
-                GestureDetector(
-                  onTap: () => Scaffold.of(context).openDrawer(),
-                  child: Icon(
-                    Icons.supervised_user_circle,
-                    color: Colors.white,
-                  ),
-                )),
-      ),
-      drawer: MineDrawer(),
-      body:
-       banner_view(bannerList, onPageClicked: (index) {
-        print(bannerList[index].desc);
-      }, autoScroll: true,),
-    
+    },
     );
   }
 
-  void _getBannerInfo(){
-    HomeBannerDao.fetch().then((model) {
-      setState(() {
-        bannerList = model.data;
-      });
-    }).catchError((error) {
-     Toast.show(error.toString(), context,
-         duration: Toast.LENGTH_SHORT, gravity: Toast.CENTER);
-    });
+  _renderTab(text) {
+    //返回一个标签
+    return new Tab(
+        child: new Container(
+          //设置paddingTop为6
+          padding: new EdgeInsets.only(top: 6),
+          //一个列控件
+          child: new Column(
+            //竖直方向居中
+            mainAxisAlignment: MainAxisAlignment.center,
+            //水平方向居中
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[text],
+          ),
+        )
+    );
   }
 
-  Widget header(BuildContext context) {
-    return new Image.network(
-      'http://i2.yeyou.itc.cn/2014/huoying/hd_20140925/hyimage06.jpg',
-    );
+  void _loadHomeList() {
+
   }
 }

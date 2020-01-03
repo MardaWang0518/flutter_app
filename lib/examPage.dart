@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class examePage extends StatefulWidget {
+class examPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -9,7 +9,7 @@ class examePage extends StatefulWidget {
   }
 }
 
-class Page extends State<examePage>{
+class Page extends State<examPage>{
   @override
   Widget build(BuildContext context) {
     return layout(context);

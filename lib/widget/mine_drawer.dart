@@ -13,24 +13,64 @@ class _MineDrawerState extends State<MineDrawer> {
   Widget build(BuildContext context) {
     // TODO: implement build
     Widget userHeader = UserAccountsDrawerHeader(
-      accountName: new Text('Workai'),
+      accountName: new Text('MardaWang0518'),
       accountEmail: new Text('wangy@workai.com.cn'),
       currentAccountPicture: new CircleAvatar(
-        backgroundImage: AssetImage('/images/icon_default_user.png'),
-        radius: 35.0,
+        backgroundImage: AssetImage('/images/user_default.png'),
+        radius: 25.0,
       ),
     );
 
     return Container(
-      width: MediaQueryData.fromWindow(window).size.width * 0.8,
+      width: MediaQueryData
+          .fromWindow(window)
+          .size
+          .width * 0.8,
       decoration: BoxDecoration(color: Colors.white),
       child: Column(
         children: <Widget>[
           userHeader, // 可在这里替换自定义的header
           ListTile(
-            title: Text('消息'),
+            title: Text('我的计划'),
+            leading: new CircleAvatar(
+              child: new Icon(Icons.list),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('词汇量'),
+            leading: new CircleAvatar(
+              child: new Icon(Icons.confirmation_number),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('我的收藏'),
+            leading: new CircleAvatar(
+              child: new Icon(Icons.favorite),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('通知中心'),
             leading: new CircleAvatar(
               child: new Icon(Icons.message),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          Divider(height: 1.0, indent: 0.0, color: Colors.grey,),
+          ListTile(
+            title: Text('意见反馈/给个好评'),
+            leading: new CircleAvatar(
+              child: new Icon(Icons.high_quality),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -44,31 +84,7 @@ class _MineDrawerState extends State<MineDrawer> {
             onTap: () {
               Navigator.pop(context);
             },
-          ),
-          ListTile(
-            title: Text('机构'),
-            leading: new CircleAvatar(
-              child: new Icon(Icons.list),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          Container(
-              alignment: Alignment.bottomCenter,
-              height: 410.0,
-              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-              // margin:const EdgeInsets.all(10),
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    "北京小爱智能科技",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(fontSize: 16, color: Colors.black45),
-                  ),
-                  Icon(Icons.navigate_next, color: Colors.grey),
-                ],
-              )),
+          )
         ],
       ),
     );

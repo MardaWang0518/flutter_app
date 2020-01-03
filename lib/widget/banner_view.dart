@@ -1,13 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/bean/homeBannerBean.dart';
 
 
 class banner_view extends StatefulWidget {
 
   //图片集合
-  List<BannerData> cycleImages = new List();
+  List cycleImages = new List();
 
   //点击事件回调
   Function onPageClicked;

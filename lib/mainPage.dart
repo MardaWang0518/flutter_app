@@ -25,7 +25,7 @@ class mainPageState extends State<mainPageWidget> {
   var tabImages;
   var appBarTitles = ['任务', '培训', '考试', '我的'];
   /*
-   * 存放三个页面，跟fragmentList一样
+   * 存放四个页面，跟fragmentList一样
    */
   var _pageList;
 
@@ -72,7 +72,7 @@ class mainPageState extends State<mainPageWidget> {
     _pageList = [
       new homePage(),
       new trainPage(),
-      new examePage(),
+      new examPage(),
       new minePage(),
     ];
   }
